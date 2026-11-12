@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="FIT - First International Technology">
+<title>FIT | First International Technology</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #08090b;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* NAVIGATION */
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(8,9,11,.9);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid #222;
+    z-index: 100;
+}
+
+nav {
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: -3px;
+}
+
+.logo span {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #aaa;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav ul a {
+    font-size: 13px;
+    color: #ccc;
+    transition: .3s;
+}
+
+nav ul a:hover {
+    color: white;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 120px 20px 60px;
+    background:
+    radial-gradient(circle at center, #242832 0%, #08090b 55%);
+}
+
+.hero small {
+    color: #aaa;
+    letter-spacing: 5px;
+    font-size: 11px;
+}
+
+.hero h1 {
+    font-size: clamp(100px, 20vw, 190px);
+    letter-spacing: -12px;
+    margin: 30px 0;
+    font-weight: 900;
+}
+
+.hero h2 {
+    font-size: 20px;
+    letter-spacing: 5px;
+    font-weight: 400;
+}
+
+.hero p {
+    color: #aaa;
+    max-width: 600px;
+    margin: 30px auto;
+    line-height: 1.8;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 28px;
+    border: 1px solid #aaa;
+    border-radius: 40px;
+    margin: 8px;
+    font-size: 12px;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: white;
+    color: black;
+}
+
+/* SECTIONS */
+
+section {
+    padding: 110px 0;
+}
+
+.label {
+    color: #888;
+    font-size: 11px;
+    letter-spacing: 4px;
+}
+
+.section-title {
+    font-size: clamp(40px, 7vw, 75px);
+    margin: 25px 0;
+    letter-spacing: -4px;
+}
+
+.description {
+    color: #aaa;
+    max-width: 650px;
+    line-height: 1.9;
+    font-size: 16px;
+}
+
+/* SERVICES */
+
+.services {
+    background: #101216;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.service {
+    padding: 35px;
+    background: linear-gradient(145deg, #1a1d23, #101216);
+    border: 1px solid #292d35;
+    min-height: 220px;
+    transition: .3s;
+}
+
+.service:hover {
+    transform: translateY(-7px);
+    border-color: #888;
+}
+
+.service h3 {
+    margin: 35px 0 15px;
+    font-size: 21px;
+}
+
+.service p {
+    color: #aaa;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+/* VISION */
+
+.vision {
+    text-align: center;
+}
+
+.vision h2 {
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.vision p {
+    color: #aaa;
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.9;
+}
+
+/* CONTACT */
+
+.contact {
+    text-align: center;
+    background: linear-gradient(135deg, #191c23, #08090b);
+}
+
+.contact p {
+    color: #aaa;
+    margin: 25px 0;
+}
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid #222;
+    padding: 35px 0;
+    color: #888;
+    font-size: 12px;
+    text-align: center;
+}
+
+footer strong {
+    color: white;
+    font-size: 20px;
+}
+
+/* WORK */
+
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.work-card {
+    background: linear-gradient(145deg, #1a1d23, #101216);
+    border: 1px solid #292d35;
+    padding: 18px 18px 28px;
+    transition: .3s;
+}
+
+.work-card:hover {
+    transform: translateY(-7px);
+    border-color: #888;
+}
+
+.work-card > span {
+    display: block;
+    margin: 22px 0 0;
+    color: #888;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.work-card h3 {
+    margin: 10px 0;
+    font-size: 21px;
+}
+
+.work-card p {
+    color: #aaa;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.shot {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #333843;
+    background: #0d0f13;
+}
+
+.shot .bar {
+    height: 24px;
+    background: #1f232b;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0 10px;
+}
+
+.shot .bar i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #555b68;
+}
+
+.scr {
+    height: 180px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.scr .h { height: 12px; width: 40%; background: #fff; border-radius: 3px; opacity: .9; }
+.scr .l { height: 6px; width: 70%; background: #4a505c; border-radius: 3px; }
+.scr .l.s { width: 50%; }
+.scr .row { display: flex; gap: 8px; margin-top: auto; }
+.scr .row b { flex: 1; height: 56px; border-radius: 5px; background: #2b303a; }
+.scr .btnx { width: 70px; height: 16px; border-radius: 10px; background: #fff; }
+
+.s1 { background: radial-gradient(circle at 80% 20%, #2f3542, #0d0f13 70%); }
+.s2 { background: linear-gradient(160deg, #1d2129, #0d0f13); }
+.s3 { background: linear-gradient(120deg, #151922, #0d0f13); flex-direction: row; gap: 10px; }
+.s3 .side { width: 28%; background: #20242d; border-radius: 5px; }
+.s3 .main { flex: 1; display: flex; flex-direction: column; gap: 9px; }
+
+@media(max-width: 768px) {
+    .work-grid { grid-template-columns: 1fr; }
+}
+
+/* LANGUAGE BUTTON + RTL */
+
+.lang-btn {
+    background: transparent;
+    color: #fff;
+    border: 1px solid #aaa;
+    border-radius: 40px;
+    padding: 9px 18px;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: .3s;
+}
+
+.lang-btn:hover,
+.lang-btn:focus-visible {
+    background: #fff;
+    color: #000;
+    outline: none;
+}
+
+html[lang="ar"] body {
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+}
+
+html[lang="ar"] .label,
+html[lang="ar"] .section-title,
+html[lang="ar"] .hero small,
+html[lang="ar"] .hero h2,
+html[lang="ar"] .logo span,
+html[lang="ar"] nav ul a {
+    letter-spacing: 0;
+}
+
+html[lang="ar"] .logo {
+    direction: ltr;
+}
+
+html[lang="ar"] .description,
+html[lang="ar"] .service p {
+    line-height: 2;
+}
+
+/* MOBILE */
+
+@media(max-width: 768px) {
+
+    nav ul {
+        display: none;
+    }
+
+    .hero h1 {
+        letter-spacing: -7px;
+    }
+
+    .hero h2 {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 80px 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<nav>
+
+<a href="#" class="logo">
+FIT
+<span>FIRST INTERNATIONAL TECHNOLOGY</span>
+</a>
+
+<ul>
+<li><a href="#about">ABOUT</a></li>
+<li><a href="#services">SERVICES</a></li>
+<li><a href="#vision">VISION</a></li>
+<li><a href="#work">WORK</a></li>
+<li><a href="#contact">CONTACT</a></li>
+</ul>
+
+<button class="lang-btn" id="langBtn" type="button">العربية</button>
+
+</nav>
+</div>
+</header>
+
+<!-- HOME -->
+
+<section class="hero">
+
+<div>
+
+<small>INDEPENDENT THINKING. INTELLIGENT TECHNOLOGY.</small>
+
+<h1>FIT.</h1>
+
+<h2>FIRST INTERNATIONAL TECHNOLOGY</h2>
+
+<p>
+We build digital experiences that move businesses forward.
+Thoughtful design, powerful technology, and ideas made real.
+</p>
+
+<a href="#services" class="btn">EXPLORE OUR SERVICES ↘</a>
+
+<a href="#contact" class="btn">START A PROJECT ↗</a>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="label">01 / WHO WE ARE</div>
+
+<h2 class="section-title">
+Technology<br>with intention.
+</h2>
+
+<p class="description">
+FIT is a technology brand focused on creating clear,
+useful, and beautifully engineered digital solutions
+for modern businesses.
+<br><br>
+We believe great technology should feel effortless.
+Every detail has a purpose. Every experience should
+make a difference.
+</p>
+
+</div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="services" id="services">
+
+<div class="container">
+
+<div class="label">02 / WHAT WE DO</div>
+
+<h2 class="section-title">
+Built for what's next.
+</h2>
+
+<p class="description">
+We turn complex challenges into simple digital experiences.
+</p>
+
+<div class="service-grid">
+
+<div class="service">
+<span>01 — DIGITAL</span>
+<h3>Web Design & Development</h3>
+<p>
+Professional websites designed to make your brand
+stand out and your business grow.
+</p>
+</div>
+
+<div class="service">
+<span>02 — COMMERCE</span>
+<h3>E-commerce Solutions</h3>
+<p>
+Modern online stores that make buying simple and easy.
+</p>
+</div>
+
+<div class="service">
+<span>03 — INTELLIGENCE</span>
+<h3>AI & Smart Systems</h3>
+<p>
+Intelligent solutions that help businesses work smarter.
+</p>
+</div>
+
+<div class="service">
+<span>04 — EXPERIENCE</span>
+<h3>UI / UX Design</h3>
+<p>
+Beautiful and intuitive interfaces designed for people.
+</p>
+</div>
+
+<div class="service">
+<span>05 — APPLICATIONS</span>
+<h3>Web Applications</h3>
+<p>
+Custom digital platforms built around business needs.
+</p>
+</div>
+
+<div class="service">
+<span>06 — GROWTH</span>
+<h3>Digital Transformation</h3>
+<p>
+Helping businesses modernize their digital presence.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- VISION -->
+
+<section class="vision" id="vision">
+
+<div class="container">
+
+<div class="label">03 / OUR VISION</div>
+
+<h2 class="section-title">
+The future isn't something we wait for.
+It's something we build.
+</h2>
+
+<p>
+We combine creativity, engineering, and attention
+to detail to create technology that feels simple
+and works brilliantly.
+</p>
+
+</div>
+
+</section>
+
+<!-- WORK -->
+
+<section class="services" id="work">
+
+<div class="container">
+
+<div class="label">04 / OUR WORK</div>
+
+<h2 class="section-title">
+Work we're proud of.
+</h2>
+
+<p class="description">
+A selection of digital experiences we've designed and built.
+</p>
+
+<div class="work-grid">
+
+<div class="work-card">
+<div class="shot"><div class="bar"><i></i><i></i><i></i></div>
+<div class="scr s1"><div class="h"></div><div class="l"></div><div class="l s"></div><div class="btnx"></div><div class="row"><b></b><b></b><b></b></div></div></div>
+<span>WEBSITE</span>
+<h3>Corporate Website</h3>
+<p>A clean, fast brand site built to win trust.</p>
+</div>
+
+<div class="work-card">
+<div class="shot"><div class="bar"><i></i><i></i><i></i></div>
+<div class="scr s2"><div class="h"></div><div class="row" style="margin-top:6px"><b></b><b></b><b></b></div><div class="row"><b></b><b></b><b></b></div></div></div>
+<span>E-COMMERCE</span>
+<h3>Online Store</h3>
+<p>A smooth shopping experience from browse to checkout.</p>
+</div>
+
+<div class="work-card">
+<div class="shot"><div class="bar"><i></i><i></i><i></i></div>
+<div class="scr s3"><div class="side"></div><div class="main"><div class="h"></div><div class="l"></div><div class="row"><b></b><b></b></div></div></div></div>
+<span>WEB APP</span>
+<h3>Business Platform</h3>
+<p>A custom dashboard that keeps operations in one place.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<div class="container">
+
+<div class="label">05 / MAKE IT HAPPEN</div>
+
+<h2 class="section-title">
+Have an idea?<br>Let's build it.
+</h2>
+
+<p>
+Tell us what you're imagining.
+We'll help turn it into something real.
+</p>
+
+<a href="mailto:hello@fit-technology.com" class="btn">
+CONTACT FIT ↗
+</a>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="container">
+
+<strong>FIT.</strong>
+
+<p>FIRST INTERNATIONAL TECHNOLOGY</p>
+
+<p style="margin-top:15px">
+© <span id="year"></span> FIT. All rights reserved.
+</p>
+
+<p style="margin-top:10px">
+Technology Beyond Limits.
+</p>
+
+</div>
+
+</footer>
+
+<script>
+function setYear() {
+    var y = document.getElementById("year");
+    if (y) y.textContent = new Date().getFullYear();
+}
+
+var T = [
+['nav ul li:nth-child(1) a', 'من نحن'],
+['nav ul li:nth-child(2) a', 'خدماتنا'],
+['nav ul li:nth-child(3) a', 'رؤيتنا'],
+['nav ul li:nth-child(4) a', 'أعمالنا'],
+['nav ul li:nth-child(5) a', 'تواصل معنا'],
+['.logo span', 'الشركة الدولية الأولى للتكنولوجيا'],
+['.hero small', 'تفكير مستقل. تكنولوجيا ذكية.'],
+['.hero h2', 'الشركة الدولية الأولى للتكنولوجيا'],
+['.hero p', 'نصنع تجارب رقمية تدفع أعمالك إلى الأمام. تصميم مدروس، وتقنية قوية، وأفكار تتحول إلى واقع.'],
+['.hero a.btn:nth-of-type(1)', 'استكشف خدماتنا ↙'],
+['.hero a.btn:nth-of-type(2)', 'ابدأ مشروعك ↖'],
+['#about .label', '01 / من نحن'],
+['#about .section-title', 'تكنولوجيا<br>بهدف واضح.'],
+['#about .description', 'FIT علامة تقنية تركز على صناعة حلول رقمية واضحة ومفيدة ومهندسة بإتقان للشركات العصرية.<br><br>نؤمن أن التكنولوجيا الرائعة يجب أن تكون سلسة وبلا تعقيد. لكل تفصيلة غرض، ولكل تجربة أثر.'],
+['#services .label', '02 / ماذا نقدم'],
+['#services .section-title', 'مبنية لما هو قادم.'],
+['#services .description', 'نحوّل التحديات المعقدة إلى تجارب رقمية بسيطة.'],
+['.service:nth-child(1) span', '01 — رقمي'],
+['.service:nth-child(1) h3', 'تصميم وتطوير المواقع'],
+['.service:nth-child(1) p', 'مواقع احترافية مصممة لتبرز علامتك التجارية وتنمّي أعمالك.'],
+['.service:nth-child(2) span', '02 — تجارة'],
+['.service:nth-child(2) h3', 'حلول التجارة الإلكترونية'],
+['.service:nth-child(2) p', 'متاجر إلكترونية حديثة تجعل الشراء بسيطًا وسهلًا.'],
+['.service:nth-child(3) span', '03 — ذكاء'],
+['.service:nth-child(3) h3', 'الذكاء الاصطناعي والأنظمة الذكية'],
+['.service:nth-child(3) p', 'حلول ذكية تساعد الشركات على العمل بكفاءة أعلى.'],
+['.service:nth-child(4) span', '04 — تجربة'],
+['.service:nth-child(4) h3', 'تصميم واجهات وتجربة المستخدم'],
+['.service:nth-child(4) p', 'واجهات جميلة وسهلة الاستخدام مصممة للناس.'],
+['.service:nth-child(5) span', '05 — تطبيقات'],
+['.service:nth-child(5) h3', 'تطبيقات الويب'],
+['.service:nth-child(5) p', 'منصات رقمية مخصصة مبنية حول احتياجات عملك.'],
+['.service:nth-child(6) span', '06 — نمو'],
+['.service:nth-child(6) h3', 'التحول الرقمي'],
+['.service:nth-child(6) p', 'نساعد الشركات على تحديث حضورها الرقمي.'],
+['#vision .label', '03 / رؤيتنا'],
+['#vision .section-title', 'المستقبل ليس شيئًا ننتظره. بل شيء نبنيه.'],
+['#vision p', 'نجمع بين الإبداع والهندسة والاهتمام بالتفاصيل لنصنع تكنولوجيا تبدو بسيطة وتعمل ببراعة.'],
+['#work .label', '04 / أعمالنا'],
+['#work .section-title', 'أعمال نفخر بها.'],
+['#work .description', 'مجموعة من التجارب الرقمية التي صممناها وبنيناها.'],
+['.work-card:nth-child(1) > span', 'موقع شركة'],
+['.work-card:nth-child(1) h3', 'موقع شركة'],
+['.work-card:nth-child(1) p', 'موقع نظيف وسريع يبني الثقة بالعلامة التجارية.'],
+['.work-card:nth-child(2) > span', 'التجارة الإلكترونية'],
+['.work-card:nth-child(2) h3', 'متجر إلكتروني'],
+['.work-card:nth-child(2) p', 'تجربة تسوق سلسة من التصفح حتى الدفع.'],
+['.work-card:nth-child(3) > span', 'تطبيق ويب'],
+['.work-card:nth-child(3) h3', 'منصة أعمال'],
+['.work-card:nth-child(3) p', 'لوحة تحكم مخصصة تجمع العمليات في مكان واحد.'],
+['#contact .label', '05 / لنبدأ'],
+['#contact .section-title', 'لديك فكرة؟<br>لنبنيها معًا.'],
+['#contact p', 'أخبرنا بما تتخيله، وسنساعدك على تحويله إلى واقع.'],
+['#contact a.btn', 'تواصل مع FIT ↖'],
+['footer p:nth-of-type(1)', 'الشركة الدولية الأولى للتكنولوجيا'],
+['footer p:nth-of-type(2)', 'جميع الحقوق محفوظة © <span id="year"></span> FIT.'],
+['footer p:nth-of-type(3)', 'تكنولوجيا بلا حدود.']
+];
+
+var ar = false;
+var btn = document.getElementById('langBtn');
+
+function apply() {
+    T.forEach(function (t) {
+        var e = document.querySelector(t[0]);
+        if (!e) return;
+        if (e.dataset.en === undefined) e.dataset.en = e.innerHTML;
+        e.innerHTML = ar ? t[1] : e.dataset.en;
+    });
+    document.documentElement.lang = ar ? 'ar' : 'en';
+    document.documentElement.dir = ar ? 'rtl' : 'ltr';
+    document.title = ar ? 'FIT | الشركة الدولية الأولى للتكنولوجيا' : 'FIT | First International Technology';
+    btn.textContent = ar ? 'English' : 'العربية';
+    setYear();
+}
+
+btn.addEventListener('click', function () {
+    ar = !ar;
+    apply();
+    try { localStorage.setItem('fitLang', ar ? 'ar' : 'en'); } catch (e) {}
+});
+
+try { ar = localStorage.getItem('fitLang') === 'ar'; } catch (e) {}
+setYear();
+if (ar) apply();
+</script>
+
+</body>
+</html>
